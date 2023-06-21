@@ -27,6 +27,7 @@
   ex) ^4.17.1 : 부버전 업데이트를 허용함 ex 4.18.1은 허용, 5.1(주버전)은 불허
  
 -scripts : 프로젝트의 스크립트 명령어를 정의함
+
  ex) ```"scripts": {
   "build": "webpack --mode production",
   "start": "nodemon index.js"
