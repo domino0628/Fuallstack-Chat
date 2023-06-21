@@ -32,7 +32,9 @@
   "start": "nodemon index.js"
 }
  nodemon index.js :  nodemon은 서버 파일인 index.js를 감시하고 변경이 감지되면 자동으로 서버를 재시작
+ 
  자동 재시작 이유? 실시간 업데이트: 서버를 재시작함으로써, 변경 내용을 실시간으로 반영할 수 있기  때문에
+ 
  실행방법 : npm run <script-name>, 따라서 npm run start 하면 실행된다.
  
  왜 쓸까? : 명령 프롬프트에 직접 nodemon index.js를 입력하긴 번거롭기 때문
