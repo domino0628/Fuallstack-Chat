@@ -27,14 +27,14 @@
   ex) ^4.17.1 : 부버전 업데이트를 허용함 ex 4.18.1은 허용, 5.1(주버전)은 불허
  
 -scripts : 프로젝트의 스크립트 명령어를 정의함
- ex) '''"scripts": {
+ ex) ```"scripts": {
   "build": "webpack --mode production",
   "start": "nodemon index.js"
-}'''
+}```
 
  nodemon index.js :  nodemon은 서버 파일인 index.js를 감시하고 변경이 감지되면 자동으로 서버를 재시작
  
- 자동 재시작 이유? 실시간 업데이트: 서버를 재시작함으로써, 변경 내용을 실시간으로 반영할 수 있기  때문에
+ 자동 재시작 이유? 실시간 업데이트: 서버를 재시작함으로써, 변경 내용을 실시간으로 반영할 수 있기 때문에
  
  실행방법 : npm run <script-name>, 따라서 npm run start 하면 실행된다.
  
