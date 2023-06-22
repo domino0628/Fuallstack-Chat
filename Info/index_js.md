@@ -53,3 +53,81 @@ ex) 웹 페이지가 "http://example.com" 도메인에서 로드되었을 때,
 동일 출처 정책(Same-Origin Policy)에 의해 접근이 제한됨
 <br/><br/>
 왜? 한 도메인의 리소스가 다른 도메인의 리소스에 접근하려는 시도를 방지하여 악성 스크립트로부터 사용자를 보호해야 해서
+<br/><br/><br/><br/><br/><br/>
+# "/signup" 엔드포인트에 대한 POST 요청 : 새로운 사용자가 가입(sign up)하려고 할 때 클라이언트에서 서버로 보내는 요청
+※엔드포인트 :"/users"라는 엔드포인트는 사용자 관련 기능을 제공하는 API의 경로를 나타낸다
+<br/><br/>
+클라이언트가 "/users" 엔드포인트에 GET 요청을 보내면 사용자 목록을 가져올 수 있고, POST 요청을 보내면 새로운 사용자를 생성할 수 있음
+<br/><br/>
+```
+app.post("/signup", async (req, res) => {
+  const { username, secret, email, first_name, last_name } = req.body;
+```
+클라이언트로부터 받은 요청의 본문에서 사용자 이름(username), 비밀번호(secret), 이메일(email), 이름(first_name), 성(last_name)을 추출
+```
+  // Store a user-copy on Chat Engine!
+  // Docs at rest.chatengine.io
+  try {
+    const r = await axios.post(
+      "https://api.chatengine.io/users/",
+      { username, secret, email, first_name, last_name },
+      { headers: { "Private-Key": CHAT_ENGINE_PRIVATE_KEY } }
+    );
+    return res.status(r.status).json(r.data);
+  } catch (e) {
+    return res.status(e.response.status).json(e.response.data);
+  }
+});
+```
+<br/><br/>
+axios를 사용하여 HTTP POST 요청을 보내는 부분 
+<br/><br/>
+Chat Engine API의 "/users/" 엔드포인트에 사용자 정보를 전송하고, Chat Engine 서비스로부터 응답을 받아 변수 r에 할당
+<br/><br/><br/><br/>
+# Express.js를 사용하여 구현된 웹 애플리케이션의 로그인 엔드포인트를 정의
+```
+app.post("/login", async (req, res) => {
+  const { username, secret } = req.body;
+
+  // Fetch this user from Chat Engine in this project!
+  // Docs at rest.chatengine.io
+  try {
+    const r = await axios.get("https://api.chatengine.io/users/me/", {
+      headers: {
+        "Project-ID": CHAT_ENGINE_PROJECT_ID,
+        "User-Name": username,
+        "User-Secret": secret,
+      },
+    });
+    return res.status(r.status).json(r.data);
+  } catch (e) {
+    return res.status(e.response.status).json(e.response.data);
+  }
+});
+
+// vvv On port 3001!
+app.listen(3001);
+```
+<br/><br/>
+1.POST 메서드를 사용하여 "/login" 경로로 들어오는 요청을 처리
+<br/><br/>
+2.const { username, secret } = req.body;: 요청의 본문(body)에서 'username'과 'secret' 값을 추출
+<br/><br/>
+3.const r = await axios.get("https://api.chatengine.io/users/me/", {: axios를 사용하여 Chat Engine의 API에서 현재 사용자 정보를 가져옴
+<br/><br/>
+4.headers: {: 요청 헤더를 정의
+<br/><br/>
+"Project-ID": CHAT_ENGINE_PROJECT_ID,: Chat Engine 프로젝트 식별자를 "Project-ID" 헤더로 설정.
+<br/><br/>
+5. 헤더와 함께 Chat Engine의 API에 GET 요청을 보내고, 반환된 결과 r에 할당
+<br/><br/>
+※ GET 예시
+사용자가 웹 페이지에서 "상품 목록 보기" 버튼을 클릭하여 상품 목록을 조회하는 경우 -> 데이터 검색 및 조회에 사용됨
+※ POST 예시
+<br/><br/>
+사용자가 웹 페이지에서 "주문하기" 버튼을 클릭하여 주문을 제출하는 경우,  ->  데이터를 서버로 제출하여 처리하고 저장하는 데 사용
+<br/><br/>
+app.listen(3001);: 3001 포트에서 서버를 실행
+<br/><br/>
+
+
