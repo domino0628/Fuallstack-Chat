@@ -61,4 +61,5 @@ Connection: close
 응답 헤더에는 "X-Powered-By", "Vary", "Content-Type", "Content-Length", "ETag", "Date", "Connection" 등의 정보가 포함
 <br><br>
 응답 본문에는 JSON 형식으로 {"username": "adam", "secret": "sha256..."} 데이터가 포함
-
+<br><br>
+# 그러나 클라이언트의 이름은 adam 하나가 아니다, Real Authentication 함수를 만들어보자
