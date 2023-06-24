@@ -7,8 +7,6 @@
 <br/><br/>
 ex) django, express
 <br/><br/>
-※서버사이드 코드 : 서버쪽에서 실행되는 코드
-<br/><br/>
 ```
 const express = require("express");
 const cors = require("cors");
