@@ -52,5 +52,6 @@ npm run dev
 해당 URL에 접속하면, 위에서 설정한 UI가 렌더링된다
 <br><br>
 ![image](https://github.com/domino0628/Fuallstack-Chat/assets/59598751/0c5b7ab6-c323-4ff4-8f7b-386ed4a8635b)
-
+<br><br>
+개선점 : **ID 생성 후에도 재접속이 가능하게 해야함**
 
