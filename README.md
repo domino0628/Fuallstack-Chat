@@ -9,4 +9,5 @@
 To leverage this tool, we’ll create a Chat Engine project, and store our users in this project
   <br><br>
 - Set frontend to decorate UI and connect with backend
-![Video](https://github.com/domino0628/Fullstack-Chatbot/assets/59598751/7a5f218e-0471-4202-8ef9-05fc380acc2e)
+
+![제목 없는 동영상 - Clipchamp로 제작 (1)](https://github.com/domino0628/Fullstack-Chatbot/assets/59598751/2ea88d18-f86d-47f3-93b0-8c1a714d6088)
