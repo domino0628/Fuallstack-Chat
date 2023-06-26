@@ -3,9 +3,9 @@
 - Set nodeJS server
   <br>
 - Set backend to get data from client
-<br>
+  <br>
 - Using chatengine.io, full-stack chat tools - which makes adding chat into Node apps easy.
-<br>
+  <br>
 To leverage this tool, we’ll create a Chat Engine project, and store our users in this project
-<br>
+  <br>
 - Set frontend to decorate UI and connect with backend
